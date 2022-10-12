@@ -2,7 +2,8 @@
 
 define('DEBUG', true);
 define('ROOT', dirname(__DIR__) );
-define('PATH', "http://{$_SERVER['SERVER_NAME']}");
+define('PATH', "http://ishop.loc");
+define('ASSETS', PATH . '/public/assets' );
 define('WWW', ROOT . '/public' );
 define('APP', ROOT . '/app' );
 define('CORE', ROOT . '/vendor/ishop/core' );

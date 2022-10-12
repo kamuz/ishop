@@ -20,8 +20,6 @@ class Db {
 		// Test connection
 		if ( ! \R::testConnection() ) {
 			throw new \Exception( 'No connection with database', 500 );
-		} else {
-			echo '<p>Success connection.</p>';
 		}
 
 		// Freeze tables
