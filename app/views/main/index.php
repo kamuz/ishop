@@ -11,33 +11,19 @@
 	<div class="about">
 		<div class="container">
 			<div class="about-top grid-1 row">
-				<div class="col-md-4 col-sm-4 about-left">
-					<figure class="effect-bubba">
-						<img class="img-responsive" src="<?php echo ASSETS; ?>/images/abt-1.jpg" alt=""/>
-						<figcaption>
-							<h2>Nulla maximus nunc</h2>
-							<p>In sit amet sapien eros Integer dolore magna aliqua</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="col-md-4 col-sm-4 about-left">
-					<figure class="effect-bubba">
-						<img class="img-responsive" src="<?php echo ASSETS; ?>/images/abt-2.jpg" alt=""/>
-						<figcaption>
-							<h4>Mauris erat augue</h4>
-							<p>In sit amet sapien eros Integer dolore magna aliqua</p>
-						</figcaption>
-					</figure>
-				</div>
-				<div class="col-md-4 col-sm-4 about-left">
-					<figure class="effect-bubba">
-						<img class="img-responsive" src="<?php echo ASSETS; ?>/images/abt-3.jpg" alt=""/>
-						<figcaption>
-							<h4>Cras elit mauris</h4>
-							<p>In sit amet sapien eros Integer dolore magna aliqua</p>
-						</figcaption>
-					</figure>
-				</div>
+				<?php if ( $brands ) :  ?>
+					<?php foreach( $brands as $brand ) : ?>
+					<div class="col-md-4 col-sm-4 about-left">
+						<figure class="effect-bubba">
+							<img class="img-responsive" src="<?php echo ASSETS; ?>/images/<?php echo $brand->img; ?>" alt=""/>
+							<figcaption>
+								<h2><?php echo $brand->title; ?></h2>
+								<p><?php echo $brand->description; ?></p>
+							</figcaption>
+						</figure>
+					</div>
+					<?php endforeach; ?>
+				<?php endif; ?>
 				<div class="clearfix"></div>
 			</div>
 		</div>
