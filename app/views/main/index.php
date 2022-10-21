@@ -15,7 +15,7 @@
 					<?php foreach( $brands as $brand ) : ?>
 					<div class="col-md-4 col-sm-4 about-left">
 						<figure class="effect-bubba">
-							<img class="img-responsive" src="<?php echo ASSETS; ?>/images/<?php echo $brand->img; ?>" alt=""/>
+							<img class="img-responsive" src="<?php echo ASSETS . '/images/' . $brand->img; ?>" alt="<?php echo $brand->title; ?>"/>
 							<figcaption>
 								<h2><?php echo $brand->title; ?></h2>
 								<p><?php echo $brand->description; ?></p>
