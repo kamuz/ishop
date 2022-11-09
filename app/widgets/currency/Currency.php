@@ -25,8 +25,15 @@ class Currency {
 	}
 
 	// Get current currency
-	public static function getCurrency() {
-
+	public static function getCurrency( $currencies ) {
+		if ( isset( $_COOKIE['currency'] ) && array_key_exists( $_COOKIE['currency'] , $currencies ) ) {
+			$key = $_COOKIE['currency'];
+		} else {
+			$key = key( $currencies );
+		}
+		$currency = $currencies[$key];
+		$currency['code'] = $key;
+		return $currency;
 	}
 
 	// Get HTML

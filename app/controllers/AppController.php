@@ -11,9 +11,13 @@ class AppController extends Controller {
 	public function __construct( $route ) {
 		parent::__construct( $route );
 		new AppModel();
+		// Set currency via cookie
+		setcookie( 'currency', 'EUR', time() + 3600 * 24 * 7, '/' );
 		$currencies = Currency::getCurrencies();
 		// debug( $currencies );
-		App::$app->setProperty( 'currency', $currencies );
-		// debug( App::$app->getProperty( 'currency' ) );
+		App::$app->setProperty( 'currencies', $currencies );
+		// debug( App::$app->getProperty( 'currencies' ) );
+		App::$app->setProperty( 'currency', Currency::getCurrency( App::$app->getProperty( 'currencies' ) ) );
+		debug( App::$app->getProperty( 'currency' ) );
 	}
 }
