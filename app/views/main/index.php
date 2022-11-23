@@ -44,7 +44,7 @@
 											<a class="add-to-cart-link" href="cart/add?id=<?php echo $hit->id; ?>"><i></i></a>
 											<span class=" item_price">$ <?php echo $hit->price; ?></span>
 											<?php if ( $hit->old_price ) : ?>
-												<small><del><?php echo $hit->old_price; ?></del></small>
+												<small><del>$ <?php echo $hit->old_price; ?></del></small>
 											<?php endif; ?>
 										</h4>
 									</div>

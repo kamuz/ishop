@@ -1,4 +1,7 @@
 $(document).ready(function() {
+	/**
+	 * Top menu init
+	 */
 	$(".memenu").memenu();
 	if ($("#slider4").length > 0) {
 		$("#slider4").responsiveSlides({
@@ -29,4 +32,12 @@ $(document).ready(function() {
 			$(this).next().stop(true, true).slideUp('normal');
 		}
 	});
+
+	/**
+	 * Currency change
+	 */
+	$('#currency').change(function(){
+		window.location = 'currency/change?curr=' + $(this).val();
+	});
+
 });

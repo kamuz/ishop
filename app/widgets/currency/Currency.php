@@ -2,6 +2,8 @@
 
 namespace app\widgets\currency;
 
+use ishop\App;
+
 class Currency {
 
 	protected $tpl;
@@ -10,13 +12,15 @@ class Currency {
 
 	// Set template and run widget
 	public function __construct() {
-		$this->tpl = __DIR__ . '/currency_tpl/currency.php';
+		$this->tpl = __DIR__ . '/tpl/currency.php';
 		$this->run();
 	}
 
 	// Run
 	protected function run(){
-		$this->getHtml();
+		$this->currencies = App::$app->getProperty('currencies');
+		$this->currency = App::$app->getProperty('currency');
+		echo $this->getHtml();
 	}
 
 	// Get currencies as accoc array
@@ -38,7 +42,9 @@ class Currency {
 
 	// Get HTML
 	protected function getHtml() {
-
+		ob_start();
+		require_once $this->tpl;
+		return ob_get_clean();
 	}
 
 }
