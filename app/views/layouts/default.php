@@ -60,7 +60,7 @@
 			<div class="header row">
 				<div class="col-md-9 header-left">
 				<div class="top-nav">
-					<ul class="memenu skyblue"><li class="active"><a href="index.php">Home</a></li>
+					<!-- <ul class="memenu skyblue"><li class="active"><a href="index.php">Home</a></li>
 						<li class="grid"><a href="#">Men</a>
 							<div class="mepanel">
 								<div class="row">
@@ -149,7 +149,13 @@
 						</li>
 						<li class="grid"><a href="typo.php">Blog</a></li>
 						<li class="grid"><a href="contact.php">Contact</a></li>
-					</ul>
+					</ul> -->
+					<?php
+					new \app\widgets\menu\Menu([
+						'tpl' => __DIR__ . '/tpl/menu.php',
+						'table' => 'test',
+					]);
+					?>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
