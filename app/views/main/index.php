@@ -1,3 +1,8 @@
+<?php
+$curr = ishop\App::$app->getProperty('currency');
+// debug($curr);
+?>
+
 	<div class="bnr" id="home">
 		<div  id="top" class="callbacks_container">
 			<ul class="rslides" id="slider4">
@@ -34,6 +39,12 @@
 				<div class="product-top">
 					<div class="product-one row">
 						<?php foreach ( $hits as $hit ) : ?>
+							<?php
+							$price_new = $hit->price * $curr['value'];
+							$price_old = $hit->old_price * $curr['value'];
+							$symbol_left = !empty( $curr['symbol_left'] ) ? $curr['symbol_left'] . ' ' : false;
+							$symbol_right = !empty( $curr['symbol_right'] ) ? ' ' . $curr['symbol_right'] : false;
+							?>
 							<div class="col-md-3 col-sm-3 product-left">
 								<div class="product-main simpleCart_shelfItem">
 									<a href="product/<?php echo $hit->alias; ?>" class="mask"><img class="img-responsive zoom-img" src="<?php echo ASSETS . '/images/' . $hit->img; ?>" alt="<?php echo $hit->title; ?>" /></a>
@@ -42,9 +53,9 @@
 										<p>Explore Now</p>
 										<h4>
 											<a class="add-to-cart-link" href="cart/add?id=<?php echo $hit->id; ?>"><i></i></a>
-											<span class=" item_price">$ <?php echo $hit->price; ?></span>
+											<span class=" item_price"><?php echo $symbol_left; ?><?php echo $price_new; ?> <?php echo $symbol_right; ?></span>
 											<?php if ( $hit->old_price ) : ?>
-												<small><del>$ <?php echo $hit->old_price; ?></del></small>
+												<small><del><?php echo $symbol_left; ?><?php echo $price_old; ?> <?php echo $symbol_right; ?></del></small>
 											<?php endif; ?>
 										</h4>
 									</div>
