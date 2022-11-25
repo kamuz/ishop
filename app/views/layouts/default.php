@@ -152,8 +152,8 @@
 					</ul> -->
 					<?php
 					new \app\widgets\menu\Menu([
-						'tpl' => __DIR__ . '/tpl/menu.php',
-						'table' => 'test',
+						// 'tpl' => __DIR__ . '/tpl/menu.php',
+						'tpl' => WWW . '/menu/menu.php',
 					]);
 					?>
 				</div>
