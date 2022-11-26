@@ -2,8 +2,8 @@
 
 namespace app\widgets\menu;
 
-use \ishop\Cache;
-use \ishop\App;
+use ishop\Cache;
+use ishop\App;
 
 class Menu {
 
@@ -42,25 +42,48 @@ class Menu {
 		if ( !$this->menuHtml ) {
 			$this->data = App::$app->getProperty( 'cats' );
 			if ( !$this->data ) {
-				$this->data = \R::getAssoc( "SELECT * FROM {$this->table}" );
+				$this->data = \R::getkAssoc( "SELECT * FROM {$this->table}" );
 			}
+			$this->tree = $this->getTree();
+			$this->menuHtml = $this->getMenuHtml( $this->tree );
 		}
-		debug( $this->data );
+		debug( $this->tree );
+		$this->output();
 	}
 
 	protected function output() {
 		echo $this->menuHtml;
 	}
 
+	/**
+	 * Create new array as tree from the table
+	 */
 	protected function getTree() {
-
+		$tree = [];
+		$data = $this->data;
+		foreach ( $data as $id => &$node ) {
+			// If have no child
+			if ( !$node['parent_id'] ) {
+				$tree[$id] = &$node;
+			} else {
+				// If have childs
+				$data[$node['parent_id']]['childs'][$id] = &$node;
+			}
+		}
+		return $tree;
 	}
 
 	protected function getMenuHtml( $tree, $tab = '' ) {
-
+		$str = '';
+		foreach ( $tree as $id => $category ) {
+			$str .= $this->catToTemplate( $category, $tab, $id );
+		}
+		return $str;
 	}
 
 	protected function catToTemplate( $category, $tab, $id ) {
-
+		ob_start();
+		require_once $this->tpl;
+		return ob_get_clean();
 	}
 }
