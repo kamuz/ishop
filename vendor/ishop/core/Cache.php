@@ -29,7 +29,7 @@ class Cache {
 			$content = unserialize( file_get_contents( $file ) );
 			// Check cache live time and get content or delete file
 			if ( time() <= $content['end_time'] ) {
-				return $content;
+				return $content['data'];
 			} else {
 				unlink( $file );
 			}
