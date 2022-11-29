@@ -10,7 +10,7 @@ class Menu {
 	protected $data;
 	protected $tree;
 	protected $menuHtml;
-	protected $tpl;
+	protected $tpl = __DIR__ . '/tpl/default.php';
 	protected $container = 'ul';
 	protected $containerClass = 'top-menu';
 	protected $table = 'category';
@@ -19,8 +19,10 @@ class Menu {
 	protected $attrs = [];
 	protected $prepend = '';
 
+	/**
+	 * Define template and get custom params for the menu
+	 */
 	public function __construct( $options = [] ) {
-		$this->tpl = __DIR__ . '/tpl/default.php';
 		$this->getOptions( $options );
 		$this->run();
 	}
@@ -36,6 +38,9 @@ class Menu {
 		}
 	}
 
+	/**
+	 * Build menu
+	 */
 	protected function run() {
 		$cache = Cache::instance();
 		$this->menuHtml = $cache->get( $this->cacheKey );
@@ -58,7 +63,6 @@ class Menu {
 	 */
 	protected function output() {
 		$attrs = '';
-		debug( $this->attrs );
 		if ( !empty( $this->attrs ) ) {
 			foreach ( $this->attrs as $k => $v ) {
 				$attrs .= "$k=\"$v\"";
@@ -87,6 +91,9 @@ class Menu {
 		return $tree;
 	}
 
+	/**
+	 * Buld tree menu
+	 */
 	protected function getMenuHtml( $tree, $tab = '' ) {
 		$str = '';
 		foreach ( $tree as $id => $category ) {
@@ -95,6 +102,9 @@ class Menu {
 		return $str;
 	}
 
+	/**
+	 * Buffer output for build full tree menu
+	 */
 	protected function catToTemplate( $category, $tab, $id ) {
 		ob_start();
 		require $this->tpl;

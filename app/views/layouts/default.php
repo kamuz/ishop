@@ -63,9 +63,6 @@
 					<?php
 					new \app\widgets\menu\Menu( [
 						'tpl' => APP . '/widgets/menu/tpl/custom.php',
-						'attrs' => [
-							'style' => "list-style: circle; border: 1px solid red;",
-						]
 					] );
 					?>
 				</div>
