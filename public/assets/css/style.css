@@ -173,6 +173,24 @@ span.simpleCart_total {
 	width: 20.5%;
 }
 
+.header-left .menu {
+	min-width: 1140px;
+}
+
+@media(max-width: 1200px) {
+	.header-left .menu {
+		min-width: unset;
+	}
+}
+
+.menu .top-menu {
+	margin-top: 5px;
+}
+
+.menu .top-menu > li > ul {
+	top: 40px;
+}
+
 .cssmenu ul {
 	float: right;
 	padding: 0;
@@ -411,7 +429,7 @@ span.simpleCart_total {
 }
 
 .header-bottom {
-	padding: 18px 0px;
+	padding: 10px 0px;
 }
 
 /*--end-bottom-header--*/
@@ -2184,10 +2202,6 @@ h3.ghj {
 		padding: 5em 0px;
 	}
 
-	.header-bottom {
-		padding: 15px 0px;
-	}
-
 	.banner,
 	.banner1,
 	.banner2 {
@@ -2260,10 +2274,6 @@ h3.ghj {
 
 	.top-header {
 		padding: 7px 0px;
-	}
-
-	.header-bottom {
-		padding: 11px 0px;
 	}
 
 	.header-right {
@@ -2403,6 +2413,10 @@ h3.ghj {
 		float: left;
 	}
 
+	.menu .top-menu > li > ul {
+		top: 0;
+	}
+
 	.cart-items h3 {
 		font-size: 1.7em;
 	}
@@ -2473,21 +2487,9 @@ h3.ghj {
 		font-size: 22px;
 	}
 
-	.memenu {
-		margin: 0px 0 0 0 !important;
-	}
-
-	.memenu>li>.mepanel {
-		padding: 20px 30px 20px 22px !important;
-	}
-
 	.search-bar {
 		width: 98%;
 		margin-top: 3px;
-	}
-
-	.header-bottom {
-		padding: 13px 0px 8px 0px;
 	}
 
 	.banner,

@@ -6,12 +6,13 @@
 	<?php echo $this->getMeta(); ?>
 	<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 	<link href="<?php echo ASSETS; ?>/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-	<link href="<?php echo ASSETS; ?>/css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo ASSETS; ?>/css/megamenu.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="<?php echo ASSETS; ?>/css/ionicons.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="<?php echo ASSETS; ?>/css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<script src="<?php echo ASSETS; ?>/js/jquery.js"></script>
 	<script src="<?php echo ASSETS; ?>/js/responsiveslides.js"></script>
 	<script src="<?php echo ASSETS; ?>/js/simplecart.js"> </script>
-	<script src="<?php echo ASSETS; ?>/js/memenu.js"></script>
+	<script src="<?php echo ASSETS; ?>/js/megamenu.js"></script>
 	<script src="<?php echo ASSETS; ?>/js/easydropdown.js"></script>
 	<script src="<?php echo ASSETS; ?>/js/main.js"></script>
 </head>
@@ -59,7 +60,7 @@
 		<div class="container">
 			<div class="header row">
 				<div class="col-md-9 header-left">
-				<div class="top-nav">
+				<div class="menu">
 					<?php
 					new \app\widgets\menu\Menu( [
 						'tpl' => APP . '/widgets/menu/tpl/custom.php',

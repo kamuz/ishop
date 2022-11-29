@@ -2,7 +2,6 @@ $(document).ready(function() {
 	/**
 	 * Top menu init
 	 */
-	$(".memenu").memenu();
 	if ($("#slider4").length > 0) {
 		$("#slider4").responsiveSlides({
 			auto: true,
