@@ -12,16 +12,16 @@ class Menu {
 	protected $menuHtml;
 	protected $tpl;
 	protected $container = 'ul';
+	protected $containerClass = 'top-menu';
 	protected $table = 'category';
-	protected $cache = 3600;
+	protected $cacheTime = 3600;
 	protected $cacheKey = 'ishop_menu';
 	protected $attrs = [];
 	protected $prepend = '';
 
 	public function __construct( $options = [] ) {
-		$this->tpl = __DIR__ . '/tpl/menu.php';
+		$this->tpl = __DIR__ . '/tpl/default.php';
 		$this->getOptions( $options );
-		// debug( $this->table );
 		$this->run();
 	}
 
@@ -46,13 +46,27 @@ class Menu {
 			}
 			$this->tree = $this->getTree();
 			$this->menuHtml = $this->getMenuHtml( $this->tree );
+			if ( $this->cacheTime ) {
+				$cache->set( $this->cacheKey, $this->menuHtml, $this->cacheTime );
+			}
 		}
-		debug( $this->tree );
 		$this->output();
 	}
 
+	/**
+	 * Render HTML menu
+	 */
 	protected function output() {
+		$attrs = '';
+		debug( $this->attrs );
+		if ( !empty( $this->attrs ) ) {
+			foreach ( $this->attrs as $k => $v ) {
+				$attrs .= "$k=\"$v\"";
+			}
+		}
+		echo '<' . $this->container . ' class="' . $this->containerClass . '" ' . $attrs . '>';
 		echo $this->menuHtml;
+		echo '<' . $this->container . '/>';
 	}
 
 	/**
@@ -83,7 +97,7 @@ class Menu {
 
 	protected function catToTemplate( $category, $tab, $id ) {
 		ob_start();
-		require_once $this->tpl;
+		require $this->tpl;
 		return ob_get_clean();
 	}
 }

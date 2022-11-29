@@ -60,101 +60,13 @@
 			<div class="header row">
 				<div class="col-md-9 header-left">
 				<div class="top-nav">
-					<!-- <ul class="memenu skyblue"><li class="active"><a href="index.php">Home</a></li>
-						<li class="grid"><a href="#">Men</a>
-							<div class="mepanel">
-								<div class="row">
-									<div class="col1 me-one">
-										<h4>Shop</h4>
-										<ul>
-											<li><a href="products.php">New Arrivals</a></li>
-											<li><a href="products.php">Blazers</a></li>
-											<li><a href="products.php">Swem Wear</a></li>
-											<li><a href="products.php">Accessories</a></li>
-											<li><a href="products.php">Handbags</a></li>
-											<li><a href="products.php">T-Shirts</a></li>
-											<li><a href="products.php">Watches</a></li>
-											<li><a href="products.php">My Shopping Bag</a></li>
-										</ul>
-									</div>
-									<div class="col1 me-one">
-										<h4>Style Zone</h4>
-										<ul>
-											<li><a href="products.php">Shoes</a></li>
-											<li><a href="products.php">Watches</a></li>
-											<li><a href="products.php">Brands</a></li>
-											<li><a href="products.php">Coats</a></li>
-											<li><a href="products.php">Accessories</a></li>
-											<li><a href="products.php">Trousers</a></li>
-										</ul>
-									</div>
-									<div class="col1 me-one">
-										<h4>Popular Brands</h4>
-										<ul>
-											<li><a href="products.php">499 Store</a></li>
-											<li><a href="products.php">Fastrack</a></li>
-											<li><a href="products.php">Casio</a></li>
-											<li><a href="products.php">Fossil</a></li>
-											<li><a href="products.php">Maxima</a></li>
-											<li><a href="products.php">Timex</a></li>
-											<li><a href="products.php">TomTom</a></li>
-											<li><a href="products.php">Titan</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="grid"><a href="#">Women</a>
-							<div class="mepanel">
-								<div class="row">
-									<div class="col1 me-one">
-										<h4>Shop</h4>
-										<ul>
-											<li><a href="products.php">New Arrivals</a></li>
-											<li><a href="products.php">Blazers</a></li>
-											<li><a href="products.php">Swem Wear</a></li>
-											<li><a href="products.php">Accessories</a></li>
-											<li><a href="products.php">Handbags</a></li>
-											<li><a href="products.php">T-Shirts</a></li>
-											<li><a href="products.php">Watches</a></li>
-											<li><a href="products.php">My Shopping Bag</a></li>
-										</ul>
-									</div>
-									<div class="col1 me-one">
-										<h4>Style Zone</h4>
-										<ul>
-											<li><a href="products.php">Shoes</a></li>
-											<li><a href="products.php">Watches</a></li>
-											<li><a href="products.php">Brands</a></li>
-											<li><a href="products.php">Coats</a></li>
-											<li><a href="products.php">Accessories</a></li>
-											<li><a href="products.php">Trousers</a></li>
-										</ul>
-									</div>
-									<div class="col1 me-one">
-										<h4>Popular Brands</h4>
-										<ul>
-											<li><a href="products.php">499 Store</a></li>
-											<li><a href="products.php">Fastrack</a></li>
-											<li><a href="products.php">Casio</a></li>
-											<li><a href="products.php">Fossil</a></li>
-											<li><a href="products.php">Maxima</a></li>
-											<li><a href="products.php">Timex</a></li>
-											<li><a href="products.php">TomTom</a></li>
-											<li><a href="products.php">Titan</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</li>
-						<li class="grid"><a href="typo.php">Blog</a></li>
-						<li class="grid"><a href="contact.php">Contact</a></li>
-					</ul> -->
 					<?php
-					new \app\widgets\menu\Menu([
-						// 'tpl' => __DIR__ . '/tpl/menu.php',
-						'tpl' => WWW . '/menu/menu.php',
-					]);
+					new \app\widgets\menu\Menu( [
+						'tpl' => APP . '/widgets/menu/tpl/custom.php',
+						'attrs' => [
+							'style' => "list-style: circle; border: 1px solid red;",
+						]
+					] );
 					?>
 				</div>
 				<div class="clearfix"> </div>
