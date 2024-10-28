@@ -20,7 +20,7 @@ class Menu {
 	protected $prepend = '';
 
 	/**
-	 * Create menu Define template and get custom params for the menu
+	 * Create menu with params
 	 */
 	public function __construct( $options = [] ) {
 		$this->getOptions( $options );
