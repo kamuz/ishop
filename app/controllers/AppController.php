@@ -9,6 +9,7 @@ use app\models\AppModel;
 use app\widgets\currency\Currency;
 
 class AppController extends Controller {
+	// Set app properties
 	public function __construct( $route ) {
 		parent::__construct( $route );
 		new AppModel();
@@ -22,10 +23,14 @@ class AppController extends Controller {
 		// debug( App::$app->getProperties() );
 	}
 
-
+	/**
+	 * Cache categories
+	 */
 	public static function cacheCategory() {
 		$cache = Cache::instance();
+		// Get categories from cache
 		$categories = $cache->get( 'cats' );
+		// If empty category cache, need to create from database
 		if ( !$categories ) {
 			$categories = \R::getAssoc( "SELECT * FROM category" );
 			$cache->set( 'cats', $categories );
