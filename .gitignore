@@ -1,6 +1,7 @@
 tmp/cache/*
 tmp/errors.log
 composer.lock
+.idea/
 vendor/*
 !vendor/ishop
 *.sublime-project
