@@ -6,3 +6,4 @@ vendor/*
 !vendor/ishop
 *.sublime-project
 *.sublime-workspace
+.osp
