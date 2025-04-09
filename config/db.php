@@ -1,7 +1,7 @@
 <?php
 
 return [
-	'dsn' => 'mysql:host=localhost;dbname=ishop;charset=utf8',
+	'dsn' => 'mysql:host=MySQL-8.0;dbname=ishop;charset=utf8',
 	'user' => 'root',
-	'pass' => 'root',
+	'pass' => '',
 ];
