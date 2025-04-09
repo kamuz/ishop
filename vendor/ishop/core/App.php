@@ -1,9 +1,12 @@
 <?php
 
 namespace ishop;
+use ishop\Registry;
 
 class App{
-
+	/**
+	 * @var Registry
+	 */
 	public static $app;
 
 	public function __construct(){
